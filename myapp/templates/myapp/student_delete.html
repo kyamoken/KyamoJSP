@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>学生削除</title>
+    <style>
+        body { display: flex; }
+        .sidebar {
+            width: 15%;
+            background-color: #f4f4f4;
+            padding: 15px;
+        }
+        .content {
+            width: 85%;
+            padding: 15px;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+        .sidebar a:hover { background-color: #ddd; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="{% url 'student_list' %}">学生一覧</a>
+        <a href="{% url 'student_create' %}">学生追加</a>
+        <a href="{% url 'student_update_page' %}">学生更新</a>
+        <a href="{% url 'student_delete_page' %}">学生削除</a>
+    </div>
+    <div class="content">
+        <h1>学生削除</h1>
+        <p>本当に削除しますか？</p>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="削除">
+        </form>
+    </div>
+</body>
+</html>
